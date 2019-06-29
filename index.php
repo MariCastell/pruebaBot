@@ -8,7 +8,7 @@
 		$botToken = "883869979:AAHz87uoLDAngUOo5FxvhzM9PuIjQDk6J3E";
 		$website = "https://api.telegram.org/bot".$botToken;
 	
-		$update = file_get_contents('php://imput');
+		$update = file_get_contents('php://input');
 		$update = json_decode($update, TRUE);
 	
 		$chatId = $update["message"]["chat"]["id"];
@@ -24,7 +24,7 @@
 		}
 		
 		function sendMessage($chatId, $response){
-			$url = 	$GLOBALS[website] '/sendMessage?chat_id='.$chatId."&parse_mode=HTML&text=".urlencode($response);
+			$url = 	$GLOBALS[website] '/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response);
 			file_get_contents($url);
 		}
 		
